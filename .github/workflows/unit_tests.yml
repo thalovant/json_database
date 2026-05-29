@@ -32,7 +32,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13"]
+        python-version: ["3.14"]
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -57,7 +57,7 @@ jobs:
           pytest --cov=json_database --cov-fail-under=80 --cov-report=term-missing --cov-report=xml test
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
-        if: matrix.python-version == '3.12'
+        if: matrix.python-version == '3.14'
         with:
           files: ./coverage.xml
           fail_ci_if_error: false

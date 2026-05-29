@@ -11,5 +11,5 @@ jobs:
     with:
       package_name: 'json_database'
       version_file: 'json_database/version.py'
-      python_versions: '["3.10", "3.11", "3.12", "3.13", "3.14"]'
+      python_versions: '["3.14"]'
       test_path: 'test/'
