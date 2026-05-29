@@ -8,7 +8,6 @@ on:
 jobs:
   build:
     uses: OpenVoiceOS/gh-automations/.github/workflows/build-tests.yml@e37a97650feada694abb6420a84bbd23a71d6bb1
-    secrets: inherit
     with:
       python_versions: '["3.14"]'
       install_extras: 'test'

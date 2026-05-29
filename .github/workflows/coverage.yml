@@ -8,7 +8,6 @@ on:
 jobs:
   coverage:
     uses: OpenVoiceOS/gh-automations/.github/workflows/coverage.yml@e37a97650feada694abb6420a84bbd23a71d6bb1
-    secrets: inherit
     with:
       python_version: '3.14'
       coverage_source: 'json_database'
