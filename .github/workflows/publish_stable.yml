@@ -6,13 +6,17 @@ on:
 
 jobs:
   publish_stable:
-    uses: TigreGotico/gh-automations/.github/workflows/publish-stable.yml@master
-    secrets: inherit
+    uses: OpenVoiceOS/gh-automations/.github/workflows/publish-stable.yml@dev
+    secrets:
+      PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+      MATRIX_TOKEN: ${{ secrets.MATRIX_TOKEN }}
     with:
       branch: 'master'
       version_file: 'json_database/version.py'
       setup_py: 'setup.py'
       publish_release: true
+      publish_pypi: false
+      sync_dev: false
 
   publish_pypi:
     needs: publish_stable
