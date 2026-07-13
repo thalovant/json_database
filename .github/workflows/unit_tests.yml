@@ -1,3 +1,6 @@
+permissions:
+  contents: read
+
 name: Run UnitTests
 on:
   pull_request:
@@ -36,9 +39,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
       - name: Set up python ${{ matrix.python-version }}
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install System Dependencies
@@ -56,7 +59,7 @@ jobs:
         run: |
           pytest --cov=json_database --cov-fail-under=80 --cov-report=term-missing --cov-report=xml test
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@b9fd7d16f6d7d1b5d2bec1a2887e65ceed900238 # v4
         if: matrix.python-version == '3.14'
         with:
           files: ./coverage.xml
